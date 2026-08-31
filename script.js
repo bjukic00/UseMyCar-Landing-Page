@@ -86,10 +86,11 @@ function closeSuccess() {
 closeSuccessModal.addEventListener('click', closeSuccess);
 closeSuccessModalBtn.addEventListener('click', closeSuccess);
 
-// Form submission
+/*
+// Form submission - old version using Hostinger
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+   
     const data = {
         email: document.getElementById('email').value,
         carModel: document.getElementById('carModel').value,
@@ -115,6 +116,32 @@ signupForm.addEventListener('submit', (e) => {
         }
     })
     .catch(() => alert('Došlo je do greške, pokušajte ponovno.'));
+});
+*/
+
+// New form submission using Web3Forms
+
+signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Pokupi sve podatke iz forme (uključujući i skriveni access_key)
+    const formData = new FormData(signupForm);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData // Šaljemo FormData umjesto JSON-a
+    })
+    .then(res => res.json())
+    .then(result => {
+        if (result.success) { // Web3Forms vraća true/false u polju 'success'
+            signupModal.classList.remove('active');
+            successModal.classList.add('active');
+            signupForm.reset();
+        } else {
+            alert(result.message || 'Došlo je do greške pri slanju.');
+        }
+    })
+    .catch(() => alert('Došlo je do greške u mreži, pokušajte ponovno.'));
 });
 
 
