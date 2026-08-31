@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="slike/UseMyCar-logo.png" type="image/png">
+    <title>UseMyCar | Iznajmi svoje vozilo</title>
+    <meta name="description" content="UseMyCar omogućuje iznajmljivanje osobnih vozila između korisnika. Jednostavno, sigurno, isplativo!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Cookie bot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="7aa3a5f1-7d1c-48d4-b8c3-4993aba3e6a0" type="text/javascript" async></script>
+    <script data-cookieconsent="ignore">    window.dataLayer = window.dataLayer || [];    function gtag() {        dataLayer.push(arguments);    }    gtag("consent", "default", {        ad_personalization: "denied",        ad_storage: "denied",        ad_user_data: "denied",        analytics_storage: "denied",        functionality_storage: "denied",        personalization_storage: "denied",        security_storage: "granted",        wait_for_update: 500,    });    gtag("set", "ads_data_redaction", true);    gtag("set", "url_passthrough", false);
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2G7LRZNWX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-B2G7LRZNWX');
+    </script>
+
+    
+</head>
+
+
+<body>
+    <!-- Header with Logo and Language Selector -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo on the left -->
+            <div class="logo-left">
+                <img src="slike/logo3.png" alt="UseMyCar Logo" class="header-logo">
+            </div>
+            
+            <!-- Brand name in the middle -->
+            <div class="brand-name text-[#4095ce] font-bold text-xl md:ml-12 ml-6" data-i18n="brand">UseMyCar</div>
+            
+            <!-- Language Selector on the right -->
+            <div class="language-selector">
+                <button class="language-btn" id="languageBtn">
+                    <i class="fas fa-globe"></i>
+                    <span>HR</span>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <a href="#" class="language-option active" data-lang="hr">
+                        <img src="slike/cro.svg.png" alt="CRO Flag" style="width: 20px; height: 15px; margin-right: 10px;">
+                        Hrvatski
+                    </a>
+                    <a href="#" class="language-option" data-lang="en">
+                        <img src="slike/uk.svg.webp" alt="UK Flag" style="width: 20px; height: 15px; margin-right: 10px;">
+                        English
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Image Section -->
+    <section
+  class="relative h-[500px] bg-center bg-cover bg-no-repeat"
+  style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('slike/3874afae-345c-41a5-bfeb-adc6ee2aa57d-min.webp');"
+>
+
+      
+        <div class="container mx-auto px-4 hero-content" id="headline">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white" data-i18n="headline">Iznajmi svoj auto i zaradi!</h1>
+                <p class="text-xl text-white" data-i18n="hero_line1">
+                    Vaš automobil stoji neiskorišten 95% vremena? 
+                </p>
+                <p class="text-xl mb-8 text-white" data-i18n="hero_line2">
+                    Pridružite se našoj platformi i pretvorite ga u pasivni prihod.
+                </p>
+                <div class="highlight-box inline-block">
+                    <button id="heroJoinBtn" class="bg-white text-[#4095ce] font-bold hover:bg-gray-100 py-3 px-8 rounded-full text-xl transition duration-300 shadow-lg pulse" data-i18n="hero_button"> 
+                        <i class="fas fa-car mr-2"></i> Zanima me
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+
+    <!-- Popular Locations Section -->
+    <section class="py-20 map-container">
+        <div class="map-section"></div>
+        <div class="container mx-auto px-4 map-content">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-i18n="locations_headline">Gdje u Hrvatskoj je vaš automobil potreban?</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-umbrella-beach text" ></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="location_coast">Obalni gradovi</h3>
+                    <p class="text-gray-600" data-i18n="location_coast_desc">
+                        <span class="font-bold text-[#4095ce]">Dalmacija, Istra, Kvarner</span> - Turistima su potrebni automobili za istraživanje hrvatske obale i <span class="font-bold text-[#4095ce]">otoka</span>. Velika potražnja od svibnja do rujna.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="location_small">Manja naselja</h3>
+                    <p class="text-gray-600" data-i18n="location_small_desc">
+                        <span class="font-bold text-[#4095ce]">Naselja bez rent-a-car agencija</span> - Posjetitelji i mještani često moraju iznajmiti automobile u većim gradovima kako bi stigli do željenih destinacija.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="location_big">Veliki gradovi</h3>
+                    <p class="text-gray-600" data-i18n="location_big_desc">
+                        <span class="font-bold text-[#4095ce]">Zagreb</span> - Poslovnim putnicima i lokalnim stanovnicima potrebni su automobili za kratka putovanja. Stalna potražnja tijekom cijele godine.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Car Background -->
+    <section class="car-bg-section">
+        <div class="car-bg-overlay"></div>
+        <div class="container mx-auto px-4 car-bg-content">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white" data-i18n="features_headline">Što Vam pruža <span class="font-bold text-[#4095ce]">UseMyCar</span>?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="feature_income">Dodatni prihodi</h3>
+                    <p class="text-gray-600" data-i18n="feature_income_desc">
+                        Prosječni vlasnik automobila u Hrvatskoj može zaraditi <span class="font-bold text-[#4095ce]">2.000 do 5.000 € </span>godišnje dok automobil stoji neiskorišten.
+                    </p>
+                </div>
+                
+                <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="feature_protection">Potpuna zaštita</h3>
+                    <p class="text-gray-600" data-i18n="feature_protection_desc">
+                        Svaki najam je <span class="font-bold text-[#4095ce]">osiguran</span>. Vaš automobil je u sigurnim rukama.
+                    </p>
+                </div>
+                
+                <div class="bg-white bg-opacity-90 p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300 text-center">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800" data-i18n="feature_control">Potpuna kontrola</h3>
+                    <p class="text-gray-600" data-i18n="feature_control_desc">
+                        Vi odlučujete tko, kada i po kojoj cijeni može iznajmiti vaš automobil. <span class="font-bold text-[#4095ce]">Nema obveze</span> - samo zarada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Earnings Calculator -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800" data-i18n="calc_headline">Izračunajte svoju potencijalnu zaradu</h2>
+            
+            <div class="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6 text-gray-800" data-i18n="calc_car_data">Podaci o vašem automobilu</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="calc_location_label">Gdje se nalazi vaš automobil?</label>
+                                <select id="location" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]">
+                                    <option value="zagreb">Zagreb</option>
+                                    <option value="split">Split</option>
+                                    <option value="dubrovnik">Dubrovnik</option>
+                                    <option value="rijeka">Rijeka</option>
+                                    <option value="zadar">Zadar</option>
+                                    <option value="other" data-i18n="calc_location_other">Ostali gradovi</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="calc_type_label">Tip automobila</label>
+                                <select id="carType" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]">
+                                    <option value="economy" data-i18n="calc_type_economy">Ekonomični (npr. VW Polo, Fiat 500)</option>
+                                    <option value="compact" data-i18n="calc_type_compact">Kompaktni (npr. VW Golf, Ford Focus)</option>
+                                    <option value="midsize" data-i18n="calc_type_midsize">Srednja klasa (npr. VW Passat, Audi A4)</option>
+                                    <option value="premium" data-i18n="calc_type_premium">Premium (npr. BMW 5 serija, Mercedes E klasa)</option>
+                                    <option value="suv" data-i18n="calc_type_suv">SUV (npr. VW Tiguan, Audi Q5)</option>
+                                    <option value="luxury" data-i18n="calc_type_luxury">Luksuzni (npr. Porsche 911, Mercedes S klasa)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="calc_year_label">Godina proizvodnje</label>
+                                <select id="carYear" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]">
+                                    <option value="2025">2025</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015" data-i18n="calc_year_other">Drugo</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" data-i18n="calc_days_label">Koliko dana mjesečno možete iznajmiti svoj automobil?</label>
+                                <input type="range" id="daysAvailable" min="5" max="30" value="15" class="w-full">
+                                <div class="flex justify-between mt-1">
+                                    <span class="text-sm text-gray-500" data-i18n="calc_days_5">5 dana</span>
+                                    <span id="daysValue" class="font-medium" data-i18n="calc_days_15">15 dana</span>
+                                    <span class="text-sm text-gray-500" data-i18n="calc_days_30">30 dana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-12 text-gray-800" data-i18n="calc_earnings_headline">Procijenjena zarada</h3>
+                        
+                        <div class="bg-[#4095ce] bg-opacity-10 rounded-lg p-6">
+                            <div class="mb=6">
+                                <div class="flex justify-between items-center mb=2">
+                                    <span class="text-gray-700" data-i18n="calc_daily_rate">Prosječna dnevna cijena:</span>
+                                    <span id="dailyRate" class="font-bold text-[#4095ce]">€45</span>
+                                </div>
+                                <div class="text-sm text-gray-500" data-i18n="calc_daily_rate_note">
+                                    Na temelju sličnih automobila u vašem području
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4 mt-6">
+                                
+                                <div class="flex justify-between border-b pb-2">
+                                    <span data-i18n="calc_monthly_earnings">Mjesečna zarada:</span>
+                                    <span id="monthlyEarnings" class="font-medium">€675</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-2">
+                                    <span data-i18n="calc_service_fee">Naknada i osiguranje: </span>
+                                    <span id="serviceFee" class="font-medium">€168.75</span>
+                                </div>
+                                <div class="flex justify-between items-center pt=2">
+                                    <span class="font-semibold" data-i18n="calc_monthly_payout">Vaša procijenjena mjesečna isplata:</span>
+                                    <span id="monthlyPayout" class="font-bold text-lg text-[#4095ce]">€506.25</span>
+                                </div>
+                            </div>
+                            
+                            <button id="calculatorJoinBtn" class="w-full mt-8 bg-[#4095ce] hover:bg-[#3685b8] text-white text-base font-bold py-3 px-4 rounded-lg transition duration-300" data-i18n="calc_join_button">
+                                Prijavi se
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 ml-2 md:mb-0 text-center md:text-left">
+                    <h2 class="text-gray-400 max-w-xs" data-i18n="footer_text">
+                        Gradimo budućnost dijeljenja automobila u Hrvatskoj. Pridružite nam se danas!
+                    </h2>
+                </div>
+                
+                <div class="ml-8 mr-8 mb-8 md:mb-0">
+                    <img src="slike/logo3.png" alt="UseMyCar Logo" class="footer-logo">
+                </div>
+                
+                <div class="ml-0 md:ml-4 grid grid-cols-2 md:grid-cols-2 gap-8">
+                    <div class="ml-4 md:ml-0">
+                        <h4 class="font-bold text-lg mb-4" data-i18n="brand">UseMyCar</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" id="aboutUsBtn" class="text-gray-400 hover:text-white" data-i18n="nav_about">O nama</a></li>
+                            <li><a href="#" id="howItWorksBtn" class="text-gray-400 hover:text-white" data-i18n="nav_how">Kako funkcionira</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4" data-i18n="nav_contact">Kontakt</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><i class="fas fa-envelope mr-2 text-gray-400"></i> <a href="mailto:info@use-my-car.com" class="text-gray-400 hover:text-white" data-i18n="nav_email">info@use-my-car.com</a></li>
+                            <li class="flex items-center"><i class="fas fa-map-marker-alt  mr-2 text-gray-400"></i> <span class="text-gray-400 ml-1" data-i18n="nav_location">Split, Hrvatska</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- About Us Modal -->
+    <div id="aboutUsModal" class="info-modal">
+        <div class="info-modal-content">
+            <button class="close-info-modal" id="closeAboutUsModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl font-bold mb-4" data-i18n="about_title">O nama</h3>
+                
+                <div>
+                    <p class="text-gray-600" data-i18n="about_intro">
+                        UseMyCar je startup iz Splita koji razvija inovativnu car sharing platformu za Hrvatsku. Naša misija je omogućiti vlasnicima automobila da zarade na svom vozilu dok ga ne koriste, dok korisnicima pružamo pristupačnu i fleksibilnu alternativu tradicionalnim rent-a-car uslugama.
+                    </p>
+                </div>
+                <br>
+                <div class="bg-[#4095ce] bg-opacity-10 rounded-lg p-4">
+                    <h4 class="font-semibold text-lg mb-2 text-[#4095ce]" data-i18n="about_vision_title">Naša vizija</h4>
+                    <p class="text-gray-600" data-i18n="about_vision">
+                        Želimo transformirati način na koji ljudi koriste automobile u Hrvatskoj, smanjiti broj neiskorištenih vozila na cestama i pružiti ekonomično rješenje za prijevoz svima.
+                    </p>
+                </div>
+                <br>
+                <div>
+                    <h4 class="font-semibold text-lg mb-2" data-i18n="about_team_title">Naš tim</h4>
+                    <p class="text-gray-600" data-i18n="about_team">
+                        Sastojimo se od mladih, ambicioznih profesionalaca iz Splita s iskustvom u tehnologiji, poslovanju i automobilskoj industriji. Kombiniramo lokalno znanje s globalnim trendovima u dijeljenju resursa.
+                    </p>
+                </div>
+                <br>
+                <div>
+                    <h4 class="font-semibold text-lg mb-2" data-i18n="about_why_title">Zašto baš mi?</h4>
+                    <p class="text-gray-600" data-i18n="about_why">
+                        Razumijemo specifičnosti hrvatskog tržišta i potrebe lokalnih korisnika. Naša platforma je prilagođena hrvatskim uvjetima i zakonima, s posebnim osiguranjem za car sharing.
+                    </p>
+                </div>
+            
+            </div>
+        </div>
+    
+
+    <!-- How It Works Modal -->
+    <div id="howItWorksModal" class="info-modal">
+        <div class="info-modal-content">
+            <button class="close-info-modal" id="closeHowItWorksModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl font-bold mb-4" data-i18n="how_title">Kako funkcionira UseMyCar?</h3>
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step1_title">1. Registracija</h4>
+                    <p class="text-gray-600" data-i18n="how_step1">Prijavite se na našu platformu i unesete podatke o svom automobilu (marka, model, godina, lokacija, cijena najma).</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step2_title">2. Odobrenje</h4>
+                    <p class="text-gray-600" data-i18n="how_step2">Naš tim će pregledati vašu prijavu i odobriti vaš automobil za dijeljenje.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step3_title">3. Postavljanje</h4>
+                    <p class="text-gray-600" data-i18n="how_step3">Vi sami određujete kada će vaš automobil biti dostupan za rezervaciju – jednostavno postavite termine u kalendaru na platformi.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step4_title">4. Zakazivanje</h4>
+                    <p class="text-gray-600" data-i18n="how_step4">Kada korisnik rezervira vaš automobil, primit ćete obavijest s detaljima najma.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step5_title">5. Priprema automobila</h4>
+                    <p class="text-gray-600" data-i18n="how_step5">Pripremite automobil za korisnika (čistoća, puno gorivo, dokumentacija).</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step6_title">6. Predaja</h4>
+                    <p class="text-gray-600" data-i18n="how_step6">Predajte ključeve korisniku na dogovorenoj lokaciji.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg" data-i18n="how_step7_title">7. Isplata</h4>
+                    <p class="text-gray-600" data-i18n="how_step7">Nakon završetka najma, novac će vam biti isplaćen na vaš račun.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="closeModal" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4" data-i18n="signup_title">Prijava za UseMyCar</h3>
+                
+                <div class="bg-[#4095ce] bg-opacity-10 rounded-lg p-4 mb-6">
+                    <div class="flex">
+                        <div class="text-[#4095ce] mr-3 mt-1">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-[#4095ce]" data-i18n="signup_info">
+                                <strong>Važno:</strong> Trenutno razvijamo platformu i prikupljamo zainteresirane vlasnike automobila. Čim budemo spremni, kontaktirat ćemo vas s detaljima.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="signupForm" class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="signup_email_label">Vaša email adresa*</label>
+                        <input type="email" id="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]">
+                    </div>
+                    
+                    <div>
+                        <label for="carModel" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="signup_car_model_label">Model automobila*</label>
+                        <input type="text" id="carModel" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]" placeholder="npr. VW Golf 7" data-i18n-placeholder="signup_car_model_placeholder">
+                    </div>
+                
+                    <div>
+                        <label for="carYearInput" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="signup_car_year_label">Godina proizvodnje*</label>
+                        <input type="number" id="carYearInput" min="1970" max="2025" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]" placeholder="npr. 2018" data-i18n-placeholder="signup_car_year_placeholder">
+                    </div>
+                    
+                    <div>
+                        <label for="locationInput" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="signup_location_label">Gdje se nalazi vaš automobil?*</label>
+                        <input type="text" id="locationInput" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#4095ce] focus:border-[#4095ce]" placeholder="npr. Split" data-i18n-placeholder="signup_location_placeholder">
+                    </div>
+                    
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-[#4095ce] hover:bg-[#3685b8] text-white font-bold py-3 px-4 rounded-lg transition duration-300" data-i18n="signup_submit">
+                            Pošaljite prijavu <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                
+                    <div class="text-center text-sm text-gray-500" data-i18n="signup_privacy">
+                        Vaši podaci su sigurni. Nikada ne dijelimo vaše podatke s trećim stranama.
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button id="closeSuccessModal" class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="p-8 text-center">
+            <div class="text-green-500 text-6xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="success_title">Hvala na prijavi!</h3>
+            <p class="text-gray-600 mb-6" data-i18n="success_text">
+                Uspješno ste se prijavili za UseMyCar. Kontaktirat ćemo vas čim budemo spremni za pokretanje.
+            </p>
+            <button id="closeSuccessModalBtn" class="bg-[#4095ce] hover:bg-[#3685b8] text-white font-medium py-2 px-6 rounded-full transition duration-300" data-i18n="success_close">
+                Zatvori
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

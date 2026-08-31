@@ -1,0 +1,7 @@
+# Osjetljivi podaci za pristup bazi podataka
+db_config.php
+
+# Nevidljive sistemske datoteke MacOS-a i Windowsa
+.DS_Store
+Thumbs.db
+*.log
